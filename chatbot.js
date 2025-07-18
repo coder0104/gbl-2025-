@@ -1,17 +1,15 @@
-//gpt 모델
 const chatMessages = document.querySelector('#chat-messages');
 const userInput = document.querySelector('#user-input input');
 const sendButton = document.querySelector('#user-input button');
 
-// OpenAI에서 발급한 API 키
-const apiKey = '';  // 🔒 반드시 실제 OpenAI 키로 교체
+const apiKey = '';  
 const apiEndpoint = 'https://api.openai.com/v1/chat/completions';
 
 function addMessage(sender, message) {
     const messageElement = document.createElement('div');
     messageElement.className = 'message';
     messageElement.textContent = `${sender}: ${message}`;
-    chatMessages.append(messageElement);  // append로 UX 개선
+    chatMessages.append(messageElement); 
 }
 
 async function fetchAIResponse(prompt) {
@@ -22,7 +20,7 @@ async function fetchAIResponse(prompt) {
             'Authorization': `Bearer ${apiKey}`
         },
         body: JSON.stringify({
-            model: "gpt-3.5-turbo",  // 또는 "gpt-4" 가능
+            model: "gpt-3.5-turbo",  
             messages: [
                 { role: "user", content: prompt }
             ],
@@ -72,7 +70,6 @@ userInput.addEventListener('keydown', (event) => {
 // const userInput = document.querySelector('#user-input input');
 // const sendButton = document.querySelector('#user-input button');
 
-// // OpenRouter에서 발급한 API 키
 // const apiKey = '';
 // const apiEndpoint = 'https://openrouter.ai/api/v1/chat/completions';
 
@@ -80,7 +77,7 @@ userInput.addEventListener('keydown', (event) => {
 //     const messageElement = document.createElement('div');
 //     messageElement.className = 'message';
 //     messageElement.textContent = `${sender}: ${message}`;
-//     chatMessages.append(messageElement);  // append가 채팅 UX에 더 적합
+//     chatMessages.append(messageElement);  
 // }
 
 // async function fetchAIResponse(prompt) {
@@ -93,11 +90,11 @@ userInput.addEventListener('keydown', (event) => {
 //             'X-Title': 'My Chatbot'
 //         },
 //         body: JSON.stringify({
-//             model: "google/gemma-3n-e2b-it:free",  // ✅ 검증된 모델명
+//             model: "google/gemma-3n-e2b-it:free", 
 //             messages: [
 //                 { role: "user", content: prompt }
 //             ],
-//             max_tokens: 512  // 보수적으로 설정
+//             max_tokens: 512 
 //         }),
 //     };
 
@@ -105,7 +102,6 @@ userInput.addEventListener('keydown', (event) => {
 //         const response = await fetch(apiEndpoint, requestOptions);
 //         const data = await response.json();
 
-//         // 에러 메시지 출력
 //         if (data.choices && data.choices.length > 0 && data.choices[0].message) {
 //             return data.choices[0].message.content;
 //         } else if (data.error) {
